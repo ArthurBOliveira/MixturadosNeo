@@ -1,0 +1,315 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    @RenderSection("metatags", false)
+
+    <title>Mixturados - E-Sports ao seu alcance</title>
+    <link href="~/Images/logoMix16.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="~/assets/c769c933a8ed0e304b025376bd97f9ba.css" type="text/css" rel="stylesheet" />
+    @*    <script src='https://www.google.com/recaptcha/api.js'></script>*@
+    <script src="~/Scripts/jquery-1.11.2.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <link href="~/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <!--DATATABLES-->
+    <script src="~/Scripts/jquery.dataTables.min.js"></script>
+    <link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="~/Scripts/bootstrap-select.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap-select.js"></script>
+    <link href="~/Content/Style.css" rel="stylesheet" />
+    <link href="/Content/Ribbon.css" rel="stylesheet" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href="~/Content/Modal.css" rel="stylesheet" />
+
+    <script src="~/Scripts/fuckadblock.js"></script>
+
+    <div id="fb-root"></div>
+    <script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.5";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+        // Function called if AdBlock is not detected
+        function adBlockNotDetected() {
+            //alert('AdBlock is not enabled');
+        }
+
+        // Function called if AdBlock is detected
+        function adBlockDetected() {
+            $('#myModal').modal('show');
+        }
+
+        $(document).ready(function () {
+            fuckAdBlock.check();
+
+            // Recommended audit because AdBlock lock the file 'fuckadblock.js' 
+            // If the file is not called, the variable does not exist 'fuckAdBlock'
+            // This means that AdBlock is present
+            if (typeof fuckAdBlock === 'undefined') {
+                adBlockDetected();
+            } else {
+                fuckAdBlock.onDetected(adBlockDetected);
+                fuckAdBlock.onNotDetected(adBlockNotDetected);
+                // and|or
+                fuckAdBlock.on(true, adBlockDetected);
+                fuckAdBlock.on(false, adBlockNotDetected);
+                // and|or
+                fuckAdBlock.on(true, adBlockDetected).onNotDetected(adBlockNotDetected);
+            }
+
+            // Change the options
+            fuckAdBlock.setOption('checkOnLoad', false);
+            // and|or
+            fuckAdBlock.setOption({
+                debug: true,
+                checkOnLoad: false,
+                resetOnEnd: false
+            });
+        });
+
+
+    </script>
+    <!-- IMAGENS DA MASTER -->
+    <script src="~/assets/e49345656039292de5a61e68cd5b18bb.js"></script>
+
+</head>
+<body class="main-page frontpage">  
+
+    <a href="#" name="top"></a>
+    <nav id="userbar" class="main full transparent row">
+        <div class="column twelve">
+            <ul class="hide-on-mobile horizontal nine columns">
+                <li class="active">
+                    <a href="/">Home</a>
+                </li>
+                <li class="dropdown">
+                    <a href="/home/champs">Campeonatos</a>
+                    <ul id="ulGames" class="content">
+                        <li>
+                            <a href="/home/champs" class="white small">Todos</a>
+                        </li>
+                        <li>
+                            <a href="/home/champs?game=lol" class="white small">LOL</a>
+                        </li>
+                        <li>
+                            <a href="/home/champs?game=hots" class="white small">HOTS</a>
+                        </li>
+                        <li>
+                            <a href="/home/champs?game=hs" class="white small">HS</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="/News">Notícias</a>
+                </li>
+                <li class="dropdown">
+                    <a href="/Stream">Streams</a>
+                </li>
+                <li class="dropdown">
+                    <a href="#">A Mixturados</a>
+                    <ul id="ulMix" class="content">
+                        <li>
+                            <a href="/Home/about" class="white small">Sobre nos
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Home/contact" class="white small">Contato
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Home/support" class="white small">Ajude nos
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="show-on-mobile horizontal nine columns">
+                <li class="active">
+                    <a href="/">Home</a>
+                </li>
+                <li class="dropdown">
+                    <a href="/home/champs">Campeonatos</a>
+                </li>
+                <li class="dropdown">
+                    <a href="/News">Notícias</a>
+                </li>
+                <li class="dropdown">
+                    <a href="/Stream">Streams</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right hide-on-mobile" id="ulDislogged">
+                <li style="cursor: pointer;">
+                    <a href="http://twitter.com/mixturadosneo" target="_blank">
+                        <img src="/Images/twitter.png" style="width: 30px; margin-top: 5px;">
+                    </a>
+                </li>
+                <li style="cursor: pointer;">
+                    <a href="http://facebook.com/mixturadoslol" target="_blank">
+                        <img src="/Images/facebook.png" style="width: 30px; margin-top: 5px;">
+                    </a>
+                </li>
+                <li style="cursor: pointer;">
+                    <a href="http://youtube.com/mixturadoslol" target="_blank">
+                        <img src="/Images/youtube.png" style="width: 30px; margin-top: 5px;">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="clear-userbar"></div>
+    <!-- PARCEIROS LOGOS -->
+    <header class="main full transparent row">
+        <div class="column twelve">
+            <div style="width: 35%;">
+                <!-- LOGO -->
+                <a id="logo" class="helemc" href="/"></a>
+            </div>
+            <div class="SiteTitle">
+                <img style="float: right" src="/Images/Text.png" />
+            </div>
+        </div>
+    </header>
+    <nav class="sub no-padding row shop-categories" id="search-bar">
+        <ul class="column twelve" id="content-type-filter">
+            <li>
+                <a href="/home/champs" class="white small">Todos</a>
+            </li>
+            <li>
+                <a href="/home/champs?game=lol" class="white small">
+                    <img style="height: 45px; margin-top: 2px;" title="League of Legends" src="/Images/l_logo.jpg" /></a>
+            </li>
+            <li>
+                <a href="/home/champs?game=hots" class="white small">
+                    <img style="height: 45px; margin-top: 2px;" title="Heroes of the Storm" src="/Images/HOTS_Logo.png" /></a>
+            </li>
+            <li>
+                <a href="/home/champs?game=csgo" class="white small">
+                    <img style="height: 45px; margin-top: 2px;" title="Counter Strike Global Offensive" src="/Images/csgo-logo.png" /></a>
+            </li>
+            <li>
+                <a href="/home/champs?game=hs" class="white small">
+                    <img style="height: 45px; margin-top: 2px;" title="Hearthstone" src="/Images/HS_Logo.png" /></a>
+            </li>
+            <li>
+                <a href="/home/champs?game=RAINBOWSIX" class="white small">
+                    <img style="height: 45px; margin-top: 2px;" title="Rainbow 6" src="/Images/R6_logo.png" /></a>
+            </li>
+            <li>
+                <div class="fb-like" data-href="https://www.facebook.com/mixturadosneo/" data-layout="standard" data-action="like" data-show-faces="false" data-share="true" data-colorscheme="dark"></div>
+            </li>
+        </ul>
+
+
+        
+    </nav>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content" style="background: url(/Images/box-striped-light.jpg) #292929!important;">
+                <div class="modal-header">
+                    <h4 class="modal-title">Detectamos que seu AdBlock está ativado.</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="figure-download">
+                        <p style="font-size: 20px;"><b>Respeitamos sua decisão de se abster de propaganda, mas como ainda não lançaram o bolsa-skin, precisamos das dilmas vindo dos anúncios parceiros.</b></p>
+
+                        <p style="font-size: 20px;"><b>Por favor configure seu AdBlock para não ser usado em nosso domínio.</b></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="content-main">
+        <div id="grid-container" class="full framed row">
+            <div class="grid-item twelve">
+                <div class="plain box twelve video-module" style="padding: 0px; border: 0px;">
+                    <section style="font-size: 15px; padding: 0px; border: 0px; background-color: #303030;">
+                        @RenderBody()
+                    </section>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br />
+    <nav class="sub no-padding row shop-categories" style="background: none" id="search-bar">
+    </nav>
+    <br />
+    <footer class="main">
+        <div class="row">
+            <div class="columns three logo">
+                <a href="index.html" class="logo">
+                    <img src="/Images/LogoPrincipal.png" alt="Fnatic" width="206;">
+                </a>
+
+                <p class="grey">
+                    <small>&copy; 2016, Mixturados<br>
+                        All rights reserved.
+                    </small>
+                </p>
+            </div>
+
+            <div class="columns six about">
+                <h4>Um pouco de nós</h4>
+                <p>
+                    <small>Nossa missão é auxiliar VOCÊ a chegar ao topo! Oferecemos campeonatos, eventos e muito mais para você alcançar o seu sonho!</small>
+                </p>
+            </div>
+
+            <div class="columns three">
+                <h4>Redes Sociais</h4>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="http://www.twitter.com/mixturadoslol" class="white small">Twitter</a>
+                        </li>
+                        <li>
+                            <a href="http://www.facebook.com/mixturadoslol" class="white small">Facebook</a>
+                        </li>
+                        <li>
+                            <a href="http://www.youtube.com/mixturadoslol" class="white small">YouTube</a>
+                        </li>
+                        <li>
+                            <a href="http://www.twitch.tv/mixturadoslol" class="white small">Twitch</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="links row">
+            <div class="columns twelve">
+                <ul class="horizontal">
+                    <li>
+                        <a class="grey" href="/Home/Premium">
+                            <small>Seja Premium</small>
+                        </a>
+                    </li>
+                    <li class="separator">|</li>
+                    <li>
+                        <a class="grey" href="/Home/about">
+                            <small>Sobre</small>
+                        </a>
+                    </li>
+                    <li class="separator">|</li>
+                    <li>
+                        <a class="grey" href="/Home/support">
+                            <small>Ajude nos</small>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

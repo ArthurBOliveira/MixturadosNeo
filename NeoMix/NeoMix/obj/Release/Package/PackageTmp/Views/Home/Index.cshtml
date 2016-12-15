@@ -1,0 +1,522 @@
+﻿@{
+    ViewBag.Title = "Index1";
+    Layout = "~/Views/Shared/_MasterNeo.cshtml";
+}
+
+@model NeoMix.ViewModel.HomeVM
+
+<style>
+    .Premium:hover {
+        color: #FFAE00 !important;
+    }
+
+    .dimmed {
+        content: " ";
+        z-index: 10;
+        display: block;
+        position: absolute;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.5);
+    }
+</style>
+
+@section metatags
+{
+    <meta property="og:url" content="http://mixturadosneo.com" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Mixturados - E-Sports ao seu alcance" />
+    <meta property="og:description" content="Encontre seu caminho ao Topo" />
+    <meta property="og:image" content="http://mixturadosneo.com/Images/NeoDesign/Logo.png" />
+}
+
+@section MainTitle
+{
+    <div class="full transparent row">
+        <div class="column twelve">
+            <div class="spotlight" style="background-color: #191818;">
+                @foreach (var s in Model.Spotlight)
+                {
+                    <div class="spotlight-item width-@s.Width height-@s.Height" style="border: solid #333; border-width: 0.5px;">
+                        <a href="@s.Link" class="spotlight-info News">
+                            <h2 class="Premium" style="background: rgba(0, 0, 0, 0.3);">@s.Title</h2>
+                        </a>
+
+                        <figure>
+                            <img class="dimmed" src="@s.Img" style="opacity: 0.7;" alt="@s.Title">
+                        </figure>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}
+
+@section Images
+{
+    <img src="/Images/NeoDesign/bg/capa.png" alt="Mixturados" style="width: 100%; height: 350px; opacity: 0.4;">
+}
+
+@section Sponsors
+{
+    <div class="full framed row" style="height: 30px;" id="scrolling">
+        <ul id="ulSponsors">
+            <li style="width: 20%; float: left;">
+                <a href="http://ts3host.com.br/" style="margin-right: 29.2779px;">
+                    <img style="width: 150px;" src="/Images/Sponsors/ts3_host.png" alt="TS3_Host">
+                </a>
+            </li>
+@*            <li style="width: 20%; float: left;">
+                <a href="http://wearesports.com.br/" style="margin-right: 29.2779px;">
+                    <img style="width: 150px;" src="/Images/Sponsors/We_Are_Esports.png" alt="WeAreEsports">
+                </a>
+            </li>*@
+            <li style="width: 20%; float: left;">
+                <a href="http://deathzone.com.br/" style="margin-right: 29.2779px;">
+                    <img style="width: 50px;" src="http://deathzone.com.br/wp-content/uploads/2016/03/TTT-e1459389465542.png" alt="WeAreEsports">
+                </a>
+            </li>
+        </ul>
+    </div>
+}
+
+
+<div class="plain box twelve video-module" style="padding: 0px; border: 0px;">
+    <section style="padding: 20px; height: 70px;">
+        <div style="width: 40%; float: left">
+            <h3 style="color: #e51c5e; font-size: 42px;">Recentes</h3>
+        </div>
+        <br />
+        <div style="width: 100%; float: left">
+            <img style="width: 100%; height: 2.1px; margin-top: 15px;" src="~/Images/NeoDesign/NewsLine.png" />
+        </div>
+    </section>
+    @foreach (var n in Model.NewsHot)
+    {
+        <div class="grid-item four masonry-brick">
+            <div class="plain box twelve">
+                <section style="height: 335px;">
+                    <header>
+                        <span class="bubble" style="height: 200px;">
+                            <span>@n.NewsType</span>
+                        </span>
+                        @n.Date.ToString("dd/MM/yyyy")
+                    </header>
+                    <br />
+                    <figure>
+                        <a href="/news?id_news=@n.Id">
+                            <img style="border-radius: 15px; border: solid #e51c5e;" src="@n.Img" alt="@n.Img">
+                        </a>
+                    </figure>
+                    <article>
+                        <h4>
+                            <a style="color: #c11b50" href="/news?id_news=@n.Id">@n.Title</a>
+                        </h4>
+                    </article>
+                </section>
+            </div>
+        </div>
+    }
+    <section style="width: 100%; border-bottom-style: solid; margin-bottom: 10px; border-color: #e51c5e">
+        <a href="/news">
+            <h3 style="text-align: center; color: #e51c5e;">Ver mais</h3>
+        </a>
+    </section>
+</div>
+
+<br />
+<br />
+
+<div class="grid-item twelve masonry-brick" style="top: 0px; left: 0px;">
+    <div class="plain box twelve" style="border-left: 1px solid #161616; border-top: 1px solid #161616; height: 100%;">
+        <section>
+            <article class="twelve columns sub no-padding row shop-categories">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- Bloco Topo -->
+                <ins class="adsbygoogle"
+                    style="display: block"
+                    data-ad-client="ca-pub-8858452918865308"
+                    data-ad-slot="8412520073"
+                    data-ad-format="auto"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </article>
+        </section>
+    </div>
+</div>
+<br />
+<br />
+
+<div class="plain box twelve video-module divCornered grid-item masonry-brick" style="padding: 0px; border: 0px;">
+    <section>
+        <div style="float: left">
+                <h4 style="color: #e51c5e; font-size: 42px;">LoL</h4>
+        </div>
+        <br />
+        <div style="width: 100%; float: left">
+            <img style="width: 100%; height: 2.1px; margin-top: 15px;" src="~/Images/NeoDesign/NewsLine.png" />
+        </div>
+    </section>
+
+     @foreach (var n in Model.NewsLOL)
+    {
+        <div class="grid-item twelve masonry-brick">
+            <div class="plain box twelve" style="height: 240px;">
+                <section>
+                    <header>
+                        <span class="bubble" style="margin-right: 5px;">
+                            <span>@n.NewsType</span>
+                        </span>
+                        @n.Date.ToString("dd/MM/yyyy")
+                    </header>
+                    <br />
+                    <article class="twelve columns">
+                        <div style="border: 0; margin-right: 5px; position: absolute;">
+                            <a class="download-type-icon" style="border-right: solid #e51c5e;" href="/news?id_news=@n.Id">
+                                <img style="height: 180px; margin-right: 5px; border-radius: 15px; width: 300px;" src="@n.Img"></a>
+                        </div>
+                        <div style="margin-left: 65%;">
+                            <a href="/news?id_news=@n.Id"><h4>@n.Title</h4></a>
+                            <h4 style="color: #e51c5e">@n.Source</h4>
+                        </div>
+                    </article>
+                </section>
+            </div>
+        </div>
+    }
+
+</div>
+
+<div class="plain box six video-module divCornered grid-item masonry-brick" style="padding: 0px; border: 0px;">
+    <section>
+        <div style="float: left">
+             <h3 style="color: #e51c5e; font-size: 42px;">E-Sports</h3>
+        </div>
+        <br />
+        <div style="width: 100%; float: left">
+            <img style="width: 100%; height: 2.1px; margin-top: 15px;" src="~/Images/NeoDesign/NewsLine.png" />
+        </div>
+    </section>
+
+     @foreach (var n in Model.NewsEsports)
+    {
+        <div class="grid-item twelve masonry-brick">
+            <div class="plain box twelve" style="height: 240px;">
+                <section>
+                    <header>
+                        <span class="bubble" style="margin-right: 5px;">
+                            <span>@n.NewsType</span>
+                        </span>
+                        @n.Date.ToString("dd/MM/yyyy")
+                    </header>
+                    <br />
+                    <article class="twelve columns">
+                        <div style="border: 0; margin-right: 5px; position: absolute;">
+                            <a class="download-type-icon" style="border-right: solid #e51c5e;" href="/news?id_news=@n.Id">
+                                <img style="height: 180px; margin-right: 5px; border-radius: 15px; width: 300px;" src="@n.Img"></a>
+                        </div>
+                        <div style="margin-left: 65%;">
+                            <a href="/news?id_news=@n.Id"><h4>@n.Title</h4></a>
+                            <h4 style="color: #e51c5e">@n.Source</h4>
+                        </div>
+                    </article>
+                </section>
+            </div>
+        </div>
+    }
+
+</div>
+
+<br />
+<br />
+
+<div class="grid-item twelve masonry-brick" style="margin-top: 30px; left: 0px;">
+    <div class="plain box twelve" style="border-left: 1px solid #161616; border-top: 1px solid #161616; height: 100%;">
+        <section>
+            <article class="twelve columns sub no-padding row shop-categories">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- Bloco Topo -->
+                <ins class="adsbygoogle"
+                    style="display: block"
+                    data-ad-client="ca-pub-8858452918865308"
+                    data-ad-slot="8412520073"
+                    data-ad-format="auto"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </article>
+        </section>
+    </div>
+</div>
+
+<br />
+<br />
+
+<div class="plain box six video-module divCornered" style="padding: 0px; border: 0px;">
+    <section>
+        <div style="width: 40%; float: left">
+                <h3 style="color: #e51c5e; font-size: 42px;">CBLOL</h3>
+        </div>
+        <br />
+        <div style="width: 100%; float: left">
+            <img style="width: 100%; height: 2.1px; margin-top: 15px;" src="~/Images/NeoDesign/NewsLine.png" />
+        </div>
+    </section>
+
+     @foreach (var n in Model.NewsCBLOL)
+    {
+        <div class="grid-item twelve masonry-brick">
+            <div class="plain box twelve" style="height: 240px;">
+                <section>
+                    <header>
+                        <span class="bubble" style="margin-right: 5px;">
+                            <span>@n.NewsType</span>
+                        </span>
+                        @n.Date.ToString("dd/MM/yyyy")
+                    </header>
+                    <br />
+                    <article class="twelve columns">
+                        <div style="border: 0; margin-right: 5px; position: absolute;">
+                            <a class="download-type-icon" style="border-right: solid #e51c5e;" href="/news?id_news=@n.Id">
+                                <img style="height: 180px; margin-right: 5px; border-radius: 15px; width: 300px;" src="@n.Img"></a>
+                        </div>
+                        <div style="margin-left: 65%;">
+                            <a href="/news?id_news=@n.Id"><h4>@n.Title</h4></a>
+                            <h4 style="color: #e51c5e">@n.Source</h4>
+                        </div>
+                    </article>
+                </section>
+            </div>
+        </div>
+    }
+
+</div>
+
+<div class="plain box six video-module divCornered" style="padding: 0px; border: 0px;">
+    <section>
+        <div style="float: left">
+                <h3 style="color: #e51c5e; font-size: 42px;">CS:GO</h3>
+        </div>
+        <br />
+        <div style="width: 100%; float: left">
+            <img style="width: 100%; height: 2.1px; margin-top: 15px;" src="~/Images/NeoDesign/NewsLine.png" />
+        </div>
+    </section>
+
+     @foreach (var n in Model.NewsCS)
+    {
+        <div class="grid-item twelve masonry-brick">
+             <div class="plain box twelve" style="height: 240px;">
+                <section>
+                    <header>
+                        <span class="bubble" style="margin-right: 5px;">
+                            <span>@n.NewsType</span>
+                        </span>
+                        @n.Date.ToString("dd/MM/yyyy")
+                    </header>
+                    <br />
+                    <article class="twelve columns">
+                        <div style="border: 0; margin-right: 5px; position: absolute;">
+                            <a class="download-type-icon" style="border-right: solid #e51c5e;" href="/news?id_news=@n.Id">
+                                <img style="height: 180px; margin-right: 5px; border-radius: 15px; width: 300px;" src="@n.Img"></a>
+                        </div>
+                        <div style="margin-left: 65%;">
+                            <a href="/news?id_news=@n.Id"><h4>@n.Title</h4></a>
+                            <h4 style="color: #e51c5e">@n.Source</h4>
+                        </div>
+                    </article>
+                </section>
+            </div>
+        </div>
+    }
+</div>
+
+<br />
+<br />
+
+<div class="grid-item twelve masonry-brick" style="margin-top: 30px; left: 0px;">
+    <div class="plain box twelve" style="border-left: 1px solid #161616; border-top: 1px solid #161616; height: 100%;">
+        <section>
+            <article class="twelve columns sub no-padding row shop-categories">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- Bloco Topo -->
+                <ins class="adsbygoogle"
+                    style="display: block"
+                    data-ad-client="ca-pub-8858452918865308"
+                    data-ad-slot="8412520073"
+                    data-ad-format="auto"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </article>
+        </section>
+    </div>
+</div>
+
+<br />
+<br />
+
+<div class="plain box twelve video-module divCornered" style="padding: 0px; border: 0px;">
+    <section style="padding: 20px; height: 70px;">
+        <div style="width: 40%; float: left">
+            <a href="/home/champs">
+                <h3 style="color: #fc7100; font-size: 42px;">CAMPEONATOS</h3>
+            </a>
+        </div>
+        <br />
+        <div style="width: 100%; float: left">
+            <img style="width: 100%; height: 2.1px; margin-top: 15px;" src="~/Images/NeoDesign/ChampsLine.png" />
+        </div>
+    </section>
+    @foreach (var n in Model.Champs)
+    {
+        <div class="grid-item four masonry-brick @n.IsPremium.ToString()" style="top: 0px; left: 0px; height: 150px; margin-bottom: 5px;">
+            <div class="plain box twelve" style="border-left: 1px solid #161616; border-top: 1px solid #161616; height: 100%;">
+                @if (n.IsPremium)
+                {
+                    <div class="box" style="position: static">
+                        <div class="ribbon"><span>Premium</span></div>
+                    </div>
+                }
+                <section>
+                    <span class="bubble">
+                        <span style="text-transform: uppercase;">@n.Game</span>
+                    </span>
+                    <p></p>
+                    <article class="twelve columns">
+                        <div style="border: 0; margin-right: 5px; width: 25%; position: absolute;">
+                            <a class="download-type-icon" style="border-right: solid #fc7100;" href="/home/champ?id_champ=@n.Id">
+                                <img style="height: 100px; margin-right: 5px; border-radius: 15px; width: 100px;" src="@n.Img"></a>
+                        </div>
+                        <div style="margin-left: 40%;">
+                            <h5 style="text-transform: uppercase;">@n.Game</h5>
+                            <h5 style="color: #fc7100">@n.Name</h5>
+                            <div>
+                                <img src="/Images/NeoDesign/Calendar.png" style="float: left; margin-right: 5px;" />
+                                <span style="color: #fc7100">
+                                    <span>@n.Date.ToString("dd/MM/yyyy")</span>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+            </div>
+        </div>
+    }
+    <section style="width: 100%; border-bottom-style: solid; margin-bottom: 10px; border-color: #fc7100">
+        <a href="/home/champs">
+            <h3 style="text-align: center; color: #fc7100;">Ver mais</h3>
+        </a>
+    </section>
+</div>
+
+<br />
+<br />
+
+<div class="grid-item twelve masonry-brick" style="top: 0px; left: 0px;">
+    <div class="plain box twelve" style="border-left: 1px solid #161616; border-top: 1px solid #161616; height: 100%;">
+        <section>
+            <article class="twelve columns sub no-padding row shop-categories">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- Conteúdo Meio -->
+                <ins class="adsbygoogle"
+                    style="display: block"
+                    data-ad-client="ca-pub-8858452918865308"
+                    data-ad-slot="9988547271"
+                    data-ad-format="auto"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </article>
+        </section>
+    </div>
+</div>
+
+<br />
+<br />
+
+@*<div class="plain box twelve video-module" style="padding: 0px; border: 0px;">
+    <section style="padding: 20px; height: 70px;">
+        <div style="width: 40%; float: left">
+            <a href="/stream">
+                <h3 style="color: #ae0f8d; font-size: 42px;">STREAMS</h3>
+            </a>
+        </div>
+        <div style="width: 100%; float: left">
+            <img style="width: 100%; height: 2.1px; margin-top: 15px;" src="~/Images/NeoDesign/StreamsLine.png" />
+        </div>
+    </section>
+    @foreach (var n in Model.Streams)
+    {
+        <div class="grid-item four masonry-brick @n.IsPremium.ToString()" style="top: 0px; left: 0px; height: 150px;">
+            <div class="plain box twelve" style="border-left: 1px solid #161616; border-top: 1px solid #161616; height: 100%;">
+                @if (n.IsPremium)
+                {
+                    <div class="box" style="position: static">
+                        <div class="ribbon"><span>Premium</span></div>
+                    </div>
+                }
+                <section>
+                    <span class="bubble">
+                        <span>@n.Game</span>
+                    </span>
+                    <p></p>
+                    <article class="twelve columns">
+                        <div style="border: 0; margin-right: 5px; width: 25%; position: absolute;">
+                            <a class="download-type-icon" style="border-right: solid #ae0f8d;" href="https://twitch.tv/@n.Name">
+                                <img style="height: 100px; margin-right: 5px; border-radius: 15px; width: 100px;" src="@n.Logo"></a>
+                        </div>
+                        <div style="margin-left: 40%;">
+                            <h5 style="text-transform: uppercase;">
+                                <a href="https://twitch.tv/@n.Name"  style="height: 60px;">@n.Title</a>
+                            </h5>
+
+                            <h5 style="color: #ae0f8d">
+                                @n.Name
+                            </h5>
+                            <div>
+                                <img src="/Images/NeoDesign/StreamsViews.png" style="float: left; margin-right: 5px;" />
+                                <span style="color: #ae0f8d">
+                                    <span>@n.Views</span>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+            </div>
+        </div>
+    }
+    <section style="width: 100%; border-bottom-style: solid; margin-bottom: 10px; border-color: #ae0f8d">
+        <a href="/streams">
+            <h3 style="text-align: center; color: #ae0f8d;">Ver mais</h3>
+        </a>
+    </section>
+</div>*@
+
+<br />
+<br />
+
+<div class="grid-item twelve masonry-brick" style="top: 0px; left: 0px;">
+    <div class="plain box twelve" style="border-left: 1px solid #161616; border-top: 1px solid #161616; height: 100%;">
+        <section>
+            <article class="twelve columns sub no-padding row shop-categories">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- Conteúdo Baixo -->
+                <ins class="adsbygoogle"
+                    style="display: block"
+                    data-ad-client="ca-pub-8858452918865308"
+                    data-ad-slot="2465280474"
+                    data-ad-format="auto"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </article>
+        </section>
+    </div>
+</div>

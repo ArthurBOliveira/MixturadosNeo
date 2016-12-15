@@ -1,0 +1,30 @@
+C:\Users\Arthur\Documents\Visual Studio 2012\Projects\NeoMix\NeoMix\bin\NeoMix.dll
+C:\Users\Arthur\Documents\Visual Studio 2012\Projects\NeoMix\NeoMix\bin\NeoMix.pdb
+C:\Users\Arthur\Documents\Visual Studio 2012\Projects\NeoMix\NeoMix\bin\MySql.Data.dll
+C:\Users\Arthur\Documents\Visual Studio 2012\Projects\NeoMix\NeoMix\obj\Release\NeoMix.csprojResolveAssemblyReference.cache
+C:\Users\Arthur\Documents\Visual Studio 2012\Projects\NeoMix\NeoMix\obj\Release\NeoMix.dll
+C:\Users\Arthur\Documents\Visual Studio 2012\Projects\NeoMix\NeoMix\obj\Release\NeoMix.pdb
+C:\Users\Arthur.Oliveira\documents\visual studio 2012\Projects\NeoMix\NeoMix\bin\NeoMix.dll
+C:\Users\Arthur.Oliveira\documents\visual studio 2012\Projects\NeoMix\NeoMix\bin\NeoMix.pdb
+C:\Users\Arthur.Oliveira\documents\visual studio 2012\Projects\NeoMix\NeoMix\bin\MySql.Data.dll
+C:\Users\Arthur.Oliveira\documents\visual studio 2012\Projects\NeoMix\NeoMix\obj\Release\NeoMix.csprojResolveAssemblyReference.cache
+C:\Users\Arthur.Oliveira\documents\visual studio 2012\Projects\NeoMix\NeoMix\obj\Release\NeoMix.dll
+C:\Users\Arthur.Oliveira\documents\visual studio 2012\Projects\NeoMix\NeoMix\obj\Release\NeoMix.pdb
+C:\Users\Arthur\documents\visual studio 2012\Projects\NeoMix\NeoMix\bin\Terradue.ServiceModel.Syndication.dll
+D:\Mixturados\NeoMix\NeoMix\bin\NeoMix.dll
+D:\Mixturados\NeoMix\NeoMix\bin\NeoMix.pdb
+D:\Mixturados\NeoMix\NeoMix\bin\MySql.Data.dll
+D:\Mixturados\NeoMix\NeoMix\bin\Terradue.ServiceModel.Syndication.dll
+D:\Mixturados\NeoMix\NeoMix\obj\Release\NeoMix.csprojResolveAssemblyReference.cache
+D:\Mixturados\NeoMix\NeoMix\obj\Release\NeoMix.dll
+D:\Mixturados\NeoMix\NeoMix\obj\Release\NeoMix.pdb
+C:\Users\Arthur\documents\visual studio 2012\Projects\NeoMix\NeoMix\bin\mscorlib.dll
+C:\Users\Arthur\documents\visual studio 2012\Projects\NeoMix\NeoMix\bin\System.Net.Http.dll
+C:\Users\Arthur\documents\visual studio 2012\Projects\NeoMix\NeoMix\bin\System.Net.Http.WebRequest.dll
+C:\Users\Arthur\documents\visual studio 2012\Projects\NeoMix\NeoMix\bin\System.Net.Http.xml
+C:\Users\Arthur\documents\visual studio 2012\Projects\NeoMix\NeoMix\bin\System.Net.Http.WebRequest.xml
+C:\Users\Arthur\documents\visual studio 2012\Projects\NeoMix\NeoMix\bin\normidna.nlp
+C:\Users\Arthur\documents\visual studio 2012\Projects\NeoMix\NeoMix\bin\normnfc.nlp
+C:\Users\Arthur\documents\visual studio 2012\Projects\NeoMix\NeoMix\bin\normnfd.nlp
+C:\Users\Arthur\documents\visual studio 2012\Projects\NeoMix\NeoMix\bin\normnfkc.nlp
+C:\Users\Arthur\documents\visual studio 2012\Projects\NeoMix\NeoMix\bin\normnfkd.nlp

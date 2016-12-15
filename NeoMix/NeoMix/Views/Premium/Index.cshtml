@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MasterNeo.cshtml";
+}
+
+@model List<NeoMix.ViewModel.ChampsVM>
+
+<script>
+    window.onload = function () {
+        $("#btnSearch").click(Search);
+    };
+
+</script>
+
+<div>
+    <input type="text" placeholder="Insira seu campeonato aqui" id="txtChamp"/>
+    <button id="btnSearch">Procurar</button>
+    <br />
+    <br />
+    <div id="ChampSelect">
+
+    </div>
+</div>

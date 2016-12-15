@@ -1,0 +1,170 @@
+﻿@{
+    ViewBag.Title = "Event";
+    Layout = "~/Views/Shared/_MasterNeo.cshtml";
+}
+
+@section metatags
+{
+<meta property="og:url" content="http://mixturadosneo.com" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Mixturados - E-Sports ao seu alcance" />
+<meta property="og:description" content="Encontre seu caminho ao Topo" />
+<meta property="og:image" content="http://mixturadosneo.com/Images/NeoDesign/Logo.png" />
+}
+
+@section MainTitle
+{
+<h3 style="font-family: Bariol; color: white; font-size: 32px; line-height: 40px;"><b>MIXTURADOS</b></h3>
+}
+
+@section Images
+{
+<img src="/Images/NeoDesign/bg/capa.png" alt="Mixturados" style="width: 100%; height: 350px; opacity: 0.4;" />
+}
+
+@model NeoMix.ViewModel.ChampsVM
+
+<div class="grid-item four masonry-brick @Model.IsPremium.ToString()" style="top: 0px; left: 0px; height: 150px;">
+    <div class="plain box twelve" style="border-left: 1px solid #161616; border-top: 1px solid #161616; height: 100%;">
+        <section>
+            <header>
+                <h4 class="type news-icon-present Game">
+                    <span class="is-download news-label-text @Model.IsPremium">@Model.Game
+                                <span class="news-label-icon @Model.Game"></span>
+                    </span>
+                </h4>
+                @if(Model.IsPremium)
+                        {
+                            <span class="comment-bubble"><b>PREMIUM</b></span>
+                }
+            </header>
+            <article class="twelve columns">
+                <figure class="three columns" style="border: 0; margin-right: 5px;">
+                    <a class="download-type-icon" href="@Model.Url">
+                        <img style="height: 74px; width: 74px;" src="@Model.Img"></a>
+                </figure>
+                <div class="figure-download">
+                    <h4>
+                        <a href="@Model.Url">@Model.Name</a>
+                    </h4>
+
+                    <span class="bubble">
+                        <span>@Model.Date.ToString("dd/MM/yyyy")</span>
+                    </span>
+                </div>
+            </article>
+        </section>
+    </div>
+
+    <div class="col-md-3 col-lg-3 " align="center">
+        <img alt="Champ Pic" src="@Model.Img" height="200" width="200" style="border-style: solid; border-color: #f87e00; border-width: 2px;">       
+    </div>
+    <div class=" col-md-9 col-lg-9 ">
+        <table class="table table-user-information" style="width: 100%">
+            <tbody>
+                <tr>
+                    <td>
+                        <label class="label">Nome</label></td>
+                    <td>
+                        <label class="label">@Model.Name</label></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="label">Data de Inicio</label></td>
+                    <td>
+                        <label class="label">@Model.Date.ToString("dd/MM/yyyy")</label></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="label">Nascimento</label></td>
+                    <td>
+                        <label class="label">@Model.Age</label></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="label">Role principal</label></td>
+                    <td>
+                        <label class="label">@Model.ProfilePlayer.Role1.ToString()</label></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="label">Role secundaria</label></td>
+                    <td>
+                        <label class="label">@Model.ProfilePlayer.Role2.ToString()</label></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="label">Campeão favorito</label></td>
+                    <td>
+                        <label class="label">@Model.ProfilePlayer.Champion.ToString()</label></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="label">Estado</label></td>
+                    <td>
+                        <label class="label">@Model.ProfilePlayer.State.ToString()</label></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="label">Horário de treino</label></td>
+                    <td>
+                        <label class="label">@Model.ProfilePlayer.Schedule.ToString()</label></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="label">Horário de treino 2</label></td>
+                    <td>
+                        <label class="label">@Model.ProfilePlayer.Schedule2.ToString()</label></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="label">Horário de treino 2</label></td>
+                    <td>
+                        <label class="label">@Model.ProfilePlayer.Schedule2.ToString()</label></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="label">Tier</label></td>
+                    <td>
+                        <label class="label">@Model.ProfilePlayer.PlayerStatistics.Tier</label></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="label">Division</label></td>
+                    <td>
+                        <label class="label">@Model.ProfilePlayer.PlayerStatistics.Division</label></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="label">Vitórias</label></td>
+                    <td>
+                        <label class="label">@Model.ProfilePlayer.PlayerStatistics.Wins</label></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="label">Derrotas</label></td>
+                    <td>
+                        <label class="label">@Model.ProfilePlayer.PlayerStatistics.Losses</label></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="label">Estatísticas do jogador</label></td>
+                    <td>
+                        <label class="label"><a class="btn btn-primary" href="http://www.lolking.net/summoner/br/@Model.ProfilePlayer.IdRiot"><i class="fa fa-eye"></i></a></label>
+                    </td>
+                </tr>
+                @if (Model.PlayerTeam.Id != 0)
+                                {
+                                    <tr>
+                                        <td>
+                                            <label class="label">Time Atual</label></td>
+                                        <td>
+                                            <label class="label">@Model.PlayerTeam.Name</label>
+                                            <button name="@Model.PlayerTeam.Id" title="Perfil" class="btn btn-sm btn-primary btnTeam"><i class="fa fa-eye"></i></button>
+                                        </td>
+
+                                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>

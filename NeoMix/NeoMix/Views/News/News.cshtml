@@ -1,0 +1,264 @@
+﻿@{
+    ViewBag.Title = "News";
+    Layout = "~/Views/Shared/_MasterNeo.cshtml";
+}
+
+@model NeoMix.ViewModel.NewsVM
+
+@section metatags
+{
+    <meta property="og:url" content="http://mixturadosneo.com/news?id_news=@Model.News.Id" />
+    <meta property="og:type" content="MixturadosNeo" />
+    <meta property="og:title" content="@Model.News.Title" />
+    <meta property="og:description" content="@Model.News.ShortDesc" />
+    <meta property="og:image" content="@Model.News.Img" />
+}
+
+@section MainTitle
+{
+    <h3 style="font-family: Bariol; color: #e51c5e; font-size: 36px; line-height: 40px;">@Model.News.Title</h3>
+}
+
+@section Images
+{
+    <img src="/Images/NeoDesign/bg/NewsCapa.png" alt="Mixturados" style="width: 100%; height: 350px; opacity: 0.15;" />
+}
+
+<script>
+    window.onload = function () {
+        ChampsPreview();
+        NewsPreview();
+    }
+    function ChampsPreview() {
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("ChampsNewsPreview", "Home")",
+            datatype: "html",
+            success: function (result) {
+                $('#ulChampsPreview').html(result);
+            }
+        });
+    }
+
+    function NewsPreview() {
+        var source = $("#hdnSource").val();
+
+        $.ajax({
+            type: "POST",
+            data: "&source=" + source,
+            url: "@Url.Action("NewsPreviewSource", "News")",
+            datatype: "html",
+            success: function (result) {
+                $('#ulNewsPreview').html(result);
+            }
+        });
+    }
+
+</script>
+
+<style>
+    img {
+        /*width: 100%;*/
+    }
+
+    p {
+        font-size: 16px !important;
+        font-family: Lato, Helvetica, Arial, sans-serif;
+    }
+
+    a {
+        font-size: 16px !important;
+        font-family: Lato, Helvetica, Arial, sans-serif;
+        color: #e51c5e;
+    }
+</style>
+
+<div class="row" id="top">
+    <input type="hidden" id="hdnSource" value="@Model.News.NewsType"/>
+    <div class="twelve box" style="padding: 10px 10px 0px 10px;">
+        <span class="bubble" style="float: left; margin-right: 5px;">
+            <span>@Model.News.NewsType</span>
+        </span>
+
+        <p class="post-info" style="float: left;">@Model.News.Date.ToString("dd-MM-yyyy") - @Model.News.Author - @Model.News.Views</p>
+
+        <div style="position: absolute; right: 1px;">
+            <a href="https://twitter.com/share" 
+                class="twitter-share-button" 
+                data-url="http://mixturadosneo.com/news?id_news=@Model.News.Id" 
+                data-text="@Model.News.Title" 
+                data-via="mixturadoslol" 
+                data-lang="pt">Tweetar</a>
+            <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
+
+            <div class="fb-share-button" data-href="http://mixturadosneo.com/news?id_news=@Model.News.Id" data-layout="button_count"></div>
+        </div>
+    </div>
+</div>
+
+<div class="one-column row">
+    <div class="eight no-border columns clear">
+        <div class="no-padding">
+            <div class="twelve no-padding box">
+                <section class="no-padding">
+                    <figure style="padding: 5px;">
+                        <img src="@Model.News.Img" style="height: 100%; border: solid #e51c5e; border-radius: 5px;" alt="@Model.News.Title">
+                    </figure>
+                </section>
+            </div>
+            <section class="google-ad-box">
+                <div class="google-ad">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- Bloco Topo -->
+                    <ins class="adsbygoogle"
+                        style="display: block"
+                        data-ad-client="ca-pub-8858452918865308"
+                        data-ad-slot="8412520073"
+                        data-ad-format="auto"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </section>
+            <div class="full transparent twelve box">
+                <section>
+                    <article style="overflow: auto;">
+                        <p>
+                            @Html.Raw(Model.News.Text)
+                        </p>
+                    </article>
+                </section>
+                <section style="border-bottom: solid #e51c5e; border-top: solid #e51c5e;">
+                    <article style="overflow: auto;">
+                        <h4>Fonte: <a href="@Model.News.Link">@Model.News.Source</a></h4>
+                    </article>
+                </section>
+                <section style="margin-top: 5px;">
+                    <p></p>
+                    <article class="row">
+                        <figure class="two columns">
+                            <a href="@Model.Admin.Link" style="border-right: solid #e51c5e; margin-right: 5px;">
+                                <img src="@Model.Admin.Img" style="height: 100px; border-radius: 15px; width: 95%;">
+                            </a>
+                        </figure>
+                        <div class="ten columns">
+                            <h4>
+                                <a href="@Model.Admin.Link">@Model.Admin.Nick</a>
+                            </h4>
+                            <p>@Model.Admin.Desc</p>
+                        </div>
+                    </article>
+                </section>
+
+                <section class="google-ad-box">
+                    <div class="google-ad">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <!-- Bloco Topo -->
+                        <ins class="adsbygoogle"
+                            style="display: block"
+                            data-ad-client="ca-pub-8858452918865308"
+                            data-ad-slot="8412520073"
+                            data-ad-format="auto"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                </section>
+
+                <section style="padding: 5px; border-radius: 5px;">
+                    <div class="grid-item six masonry-brick">
+                        <div class="plain box twelve">
+                            <section style="height: 335px;">
+                                <header>
+                                    <span class="bubble" style="height: 200px;">
+                                        <span>CBLOL</span>
+                                    </span>
+                                    26/06/2016
+                                </header>
+                                <br>
+                                <figure>
+                                    <a href="/news?id_news=5450">
+                                        <img style="border-radius: 15px; border: solid #e51c5e;" src="http://mycnb.uol.com.br/images/intz-se-abraca-cblol-2016-2o-split-classificacao-riot-games.jpg" alt="http://mycnb.uol.com.br/images/intz-se-abraca-cblol-2016-2o-split-classificacao-riot-games.jpg">
+                                    </a>
+                                </figure>
+                                <article>
+                                    <h4>
+                                        <a style="color: #c11b50" href="/news?id_news=5450">Dominante, INTZ chega a quarta final de CBLoL em busca do terceiro título</a>
+                                    </h4>
+                                </article>
+                            </section>
+                        </div>
+                    </div>
+                    <div class="grid-item six masonry-brick">
+                        <div class="plain box twelve">
+                            <section style="height: 335px;">
+                                <header>
+                                    <span class="bubble" style="height: 200px;">
+                                        <span>CBLOL</span>
+                                    </span>
+                                    26/06/2016
+                                </header>
+                                <br>
+                                <figure>
+                                    <a href="/news?id_news=5450">
+                                        <img style="border-radius: 15px; border: solid #e51c5e;" src="http://mycnb.uol.com.br/images/intz-se-abraca-cblol-2016-2o-split-classificacao-riot-games.jpg" alt="http://mycnb.uol.com.br/images/intz-se-abraca-cblol-2016-2o-split-classificacao-riot-games.jpg">
+                                    </a>
+                                </figure>
+                                <article>
+                                    <h4>
+                                        <a style="color: #c11b50" href="/news?id_news=5450">Dominante, INTZ chega a quarta final de CBLoL em busca do terceiro título</a>
+                                    </h4>
+                                </article>
+                            </section>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="fb-comments" data-colorscheme="dark" data-href="http://mixturadosneo.com/news?id_news=@Model.News.Id" data-numposts="5"></div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <div class="right four sidebar box">
+        <section style="padding: 5px; border-radius: 5px;">
+            <header style="text-align: center; margin-bottom: 5px;">
+                <h3 style="color: #e51c5e !important;">Notícias - @Model.News.NewsType</h3>
+            </header>
+            <ul style="width: 100%;" id="ulNewsPreview">
+            </ul>
+            <footer>
+                <a href="/news">
+                    <h4 style="color: #e51c5e !important; text-align: center">------ Ver mais ------</h4>
+                </a>
+            </footer>
+        </section>
+        <section style="padding: 5px; border-radius: 5px;">
+            <header style="text-align: center; margin-bottom: 5px;">
+                <h3 style="color: #fc7100 !important;">Campeonatos</h3>
+            </header>
+            <ul id="ulChampsPreview">
+            </ul>
+            <footer>
+                <a href="/home/champs">
+                    <h4 style="color: #fc7100 !important; text-align: center">------ Ver mais ------</h4>
+                </a>
+            </footer>
+        </section>
+        <section class="google-ad-box">
+            <div class="google-ad" style="width: 300px; height: 604px">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- Bloco Topo -->
+                <ins class="adsbygoogle"
+                    style="display: block"
+                    data-ad-client="ca-pub-8858452918865308"
+                    data-ad-slot="8412520073"
+                    data-ad-format="auto"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </section>
+    </div>
+</div>

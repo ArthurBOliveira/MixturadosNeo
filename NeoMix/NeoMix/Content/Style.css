@@ -1,0 +1,127 @@
+﻿@font-face {
+    font-family: Bariol !important;
+    src: url("/Content/Bariol_Regular.otf");
+}
+
+.width-container, .footerWrap, #copyright {
+    background: url("/Images/trans-bg.png") repeat scroll 0 0 #121212 !important;
+}
+
+#header {
+    margin-top: 0;
+}
+
+.Game {
+    color: #5bbbff;
+}
+
+.LOL {
+    background-image: url(/Images/filestorage/games/d606f874-game-lol.svg);
+}
+
+.HOTS {
+    background-image: url(/Images/filestorage/games/ca686d56-HoS.png);
+}
+
+.HS {
+    background-image: url(/Images/filestorage/games/d372dccf-HS.png);
+}
+
+.CSGO {
+    background-image: url(/Images/filestorage/games/86d33ebb-2297298f-csgo.png);
+}
+
+.BF4 {
+    background-image: url(/Images/filestorage/games/de7553be-BF4_logo.png);
+}
+
+.SMITE {
+    background-image: url(/Images/filestorage/games/248b2c90-smite.png);
+}
+
+.DOTA {
+    background-image: url(/Images/filestorage/games/4487dd7f-game-dota2.svg);
+}
+
+.True {
+    background: url(/Images/NeoDesign/PremiumBG.png)!important;
+    background-size: 140%;
+    background-position-x: -50px;
+}
+
+.False {
+    background-color: #191818;
+}
+
+.ribbon {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.divCornered {
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+/*Menu Responsive*/
+
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+    ul.topnav li {
+        float: left;        
+    }
+
+        ul.topnav li a {
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            transition: 0.3s;
+            background: rgba(20,20,20,0.8)!important;
+        }
+
+            ul.topnav li a:hover {
+                background-color: #111;
+            }
+
+        ul.topnav li.icon {
+            display: none;
+        }
+
+@media screen and (max-width:680px) {
+    ul.topnav li:not(:first-child) {
+        display: none;
+    }
+
+    ul.topnav li.icon {
+        float: right;
+        display: inline-block;
+    }
+}
+
+@media screen and (max-width:680px) {
+    ul.topnav.responsive {
+        position: relative;
+    }
+
+        ul.topnav.responsive li.icon {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        ul.topnav.responsive li {
+            float: none;
+            display: inline;
+        }
+
+            ul.topnav.responsive li a {
+                display: block;
+                text-align: left;
+            }
+}

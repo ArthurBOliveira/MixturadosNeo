@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "Stats";
+    Layout = "~/Views/Shared/_MasterNeo.cshtml";
+}
+
+@model NeoMix.ViewModel.StatsVM
+
+@*<h2>Por Data</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Data</th>
+            <th>Views</th>
+        </tr>
+    </thead>
+    <tbody>        
+        @foreach (DateTime d in Model.StatsDate.Date)
+        {
+            <tr>
+            <td>@d.ToString("dd/MM/yyyy")</td>
+        }
+        @foreach (int v in Model.StatsDate.Views)
+        {
+            <td>@v</td>
+            </tr>
+        }
+        
+    </tbody>
+</table>*@
+
+<br />
+<br />
+
+<h2>Por Pagina</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Pagina</th>
+            <th>Views</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (string c in Model.StatsPage.Collumn)
+        {
+            <tr>
+                <td><a href="http://mixturadosneo.com/@c">@c</a></td>
+            </tr>
+        }
+
+        @foreach (int v in Model.StatsDate.Views)
+        {
+            <tr>
+            <td>@v</td>
+</tr>
+        }
+    </tbody>
+</table>
+
+<br />
+<br />
+
+@*<h2>Por Tipo</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Tipo</th>
+            <th>Views</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        @foreach (string cd in Model.StatsPage.Collumn)
+        {
+            <tr>
+            <td>@cd</td>
+        }
+        @foreach (int v in Model.StatsDate.Views)
+        {
+            <td>@v</td>
+            </tr>
+        }
+    </tbody>
+</table>*@

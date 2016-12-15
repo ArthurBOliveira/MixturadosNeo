@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_MasterNeo.cshtml";
+}
+
+@section metatags
+{
+<meta property="og:url" content="http://mixturadosneo.com" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Mixturados - E-Sports ao seu alcance" />
+<meta property="og:description" content="Encontre seu caminho ao Topo" />
+<meta property="og:image" content="http://mixturadosneo.com/Images/NeoDesign/Logo.png" />
+}
+
+@section MainTitle
+{
+<h3 style="font-family: Bariol; color: white; font-size: 32px; line-height: 40px;"><b>MIXTURADOS</b></h3>
+}
+
+@section Images
+{
+<img src="/Images/NeoDesign/bg/capa.png" alt="Mixturados" style="width: 100%; height: 350px; opacity: 0.4;" />
+}
+
+<script src='//cdn.tinymce.com/4/tinymce.min.js'></script>
+@*<script>tinymce.init({ selector: '#txtText' });</script>*@
+
+<script>
+    function Create() {
+        var Title = $("#txtTitle").val();
+        var Text = $("#txtText").val();
+        var Tag = $("#selTag").val();
+        var Game = $("#txtGame").val();
+
+        var data = "&title=" + Title + "&text=" + Text + "&tag=" + Tag + "&game=" + Game;
+
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("Create", "Post")",
+            data: data,
+            success: function (result) {
+                if (result)
+                    window.alert("Post cadastrados com sucesso");
+                else
+                    window.alert("Oops parecemos que temos um problema!! ^^'");
+            }
+        });
+    }
+</script>
+
+<h2>Criar Post</h2>
+
+<br />
+
+<label>Título</label>
+<input id="txtTitle" type="text" value="Máx 100 caracteres" style="width: 100%"/>
+<br />
+<br />
+<br />
+
+<label>Texto</label>
+<br />
+<textarea style="width: 100%; height: 150px;" id="txtText">Máx 400 caracteres</textarea>
+<br />
+<br />
+<br />
+
+<label>Tag</label>
+<br />
+<select id="selTag">
+        <option>Procuro_Time</option>
+        <option>Procuro_Jogador</option>
+        <option>Procuro_Scrim</option>
+        <option>Coach</option>
+        <option>Outros</option>
+</select>
+<br />
+<br />
+<br />
+
+<label>Jogo</label>
+<input id="txtGame" type="text" value="O(s) jogo(s) que o seu Post se aplica." style="width: 100%"/>
+<br />
+<br />
+<br />
+
+<input type="button" class="button" onclick="Create();" value="Criar"/>

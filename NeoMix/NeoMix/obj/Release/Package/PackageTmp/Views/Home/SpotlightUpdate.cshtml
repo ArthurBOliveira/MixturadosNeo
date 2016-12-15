@@ -1,0 +1,118 @@
+﻿@{
+    ViewBag.Title = "SpotlightUpdate";
+    Layout = "~/Views/Shared/_MasterNeo.cshtml";
+}
+
+@model NeoMix.Models.Spotlight
+
+@section metatags
+{
+<meta property="og:url" content="http://mixturadosneo.com" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Mixturados - E-Sports ao seu alcance" />
+<meta property="og:description" content="Encontre seu caminho ao Topo" />
+<meta property="og:image" content="http://mixturadosneo.com/Images/NeoDesign/Logo.png" />
+}
+
+@section MainTitle
+{
+<h3 style="font-family: Bariol; color: white; font-size: 32px; line-height: 40px;"><b>MIXTURADOS</b></h3>
+}
+
+@section Images
+{
+<img src="/Images/NeoDesign/bg/capa.png" alt="Mixturados" style="width: 100%; height: 350px; opacity: 0.4;" />
+}
+
+<script>
+    function Edit() {
+        var id = $("#hdnId").val();
+        var Width = $("#txtWidth").val();
+        var Height = $("#txtHeight").val();
+        var Img = $("#txtImg").val();
+        var Title = $("#txtTitle").val();
+        var Link = $("#txtLink").val();
+        var Type = $("#txtType").val();
+
+        var data = "&id=" + id + "&width=" + Width + "&height=" + Height + "&img=" + Img + "&title=" + Title + "&link=" + Link + "&type=" + Type;
+
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("SpotlightCreate", "Home")",
+            data: data,
+            success: function (result) {
+                if (result)
+                    window.alert("Spotlight Editada com sucesso");
+                else
+                    window.alert("Deu Bad! Avisa o Arthur!!! O_O");
+            }
+        });
+    }
+
+    function Delete() {
+        var id = $("#hdnId").val();
+       
+        var data = "&id=" + id;
+
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("SpotlightDelete", "Home")",
+            data: data,
+            success: function (result) {
+                if (result)
+                    window.location = "http://mixturadosneo.com/";
+                else
+                    window.alert("Deu Bad! Avisa o Arthur!!! O_O");
+            }
+        });
+    }
+</script>
+
+<h2>Editar</h2>
+
+<input type="hidden" id="hdnId" value="@Model.Id.ToString()"/>
+
+<input type="button" class="button" onclick="Delete();" value="Delete"/>
+<br />
+<br />
+<br />
+
+<label>Width</label>
+<input id="txtWidth" type="text" value="@Model.Width" style="width: 100%"/>
+<br />
+<br />
+<br />
+
+<label>Height</label>
+<input id="txtHeight" type="text" value="@Model.Height" style="width: 100%"/>
+<br />
+<br />
+<br />
+
+<label>Imagem</label>
+<input id="txtImg" type="text" value="@Model.Img" style="width: 100%"/>
+<br />
+<br />
+<br />
+
+<label>Título</label>
+<input id="txtTitle" type="text" value="@Model.Title" style="width: 100%"/>
+<br />
+<br />
+<br />
+
+<label>Link</label>
+<input id="txtLink" type="text" value="@Model.Link" style="width: 100%"/>
+<br />
+<br />
+<br />
+
+<label>Tipo</label>
+<input id="txtType" type="text" value="@Model.Type" style="width: 100%"/>
+<br />
+<br />
+<br />
+
+<input type="button" class="button" onclick="Edit();" value="Editar"/>
+
+

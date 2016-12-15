@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+<script>
+    function Login() {
+        var login = $("#txtLogin").val();
+        var pass = $("#txtPass").val();
+
+        var data = "&login=" + login + "&pass=" + pass;
+
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("LoginScript", "Home")",
+            data: data,
+            success: function (result) {
+                if (result)
+                    window.alert("Você está logado!");
+                else
+                    window.alert("Deu Bad!!");
+            }
+        });
+    }
+</script>
+
+<label>Login:</label>
+<input id="txtLogin" type="text"/>
+
+<br />
+
+<label>Senha:</label>
+<input id="txtPass" type="password"/>
+
+<br />
+
+<button onclick="Login();">Logar</button>

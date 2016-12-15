@@ -1,0 +1,127 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MasterNeo.cshtml";
+}
+
+@model List<NeoMix.Models.News>
+
+@section metatags
+{
+    <meta property="og:url" content="http://mixturadosneo.com" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Mixturados - E-Sports ao seu alcance" />
+    <meta property="og:description" content="Encontre seu caminho ao Topo" />
+    <meta property="og:image" content="http://mixturadosneo.com/Images/NeoDesign/Logo.png" />
+}
+
+@section MainTitle
+{
+    <h3 style="font-family: Bariol; color: white; font-size: 32px; line-height: 40px;">NOTÍCIAS</h3>
+}
+
+@section Images
+{
+    <img src="/Images/NeoDesign/bg/NewsCapa.png" alt="Mixturados" style="width: 100%; height: 350px; opacity: 0.4;" />
+}
+
+<div id="grid-container" class="full framed row masonry" style="position: relative;">
+
+@*    <div class="plain box twelve" style="height: 100%;">
+        <section>
+            <header>
+                <h3 style="font-size: 35px;">Filtrar</h3>
+                <div style="bottom: 10px; position: absolute; right: 1px;">
+                    <div class="fb-share-button" data-href="http://mixturadosneo.com/News" data-layout="button_count"></div>
+                </div>
+            </header>
+            <article class="twelve columns sub no-padding row shop-categories">
+                <p></p>
+                <nav class="sub no-padding row shop-categories">
+                    <ul class="column twelve" id="content-type-filter">
+                        <li>
+                            <p>Por Categoria:</p>
+                        </li>
+                        <li>
+                            <a href="/news" class="white small">
+                                <img style="margin-top: 2px;" title="Todas" src="/Images/NeoDesign/FilterIcons/TodosIcon.png" /></a>
+                        </li>
+                        <li>
+                            <a href="/news?id_news=E-Sports" class="white small">
+                                <img style="margin-top: 2px;" title="E-Sports" src="/Images/NeoDesign/FilterIcons/E-Sports.png" /></a>
+                        </li>
+                        <li>
+                            <a href="/news?id_news=League of Legends" class="white small">
+                                <img style="margin-top: 2px;" title="League of Legends" src="/Images/NeoDesign/FilterIcons/LOLIcon.png" /></a>
+                        </li>
+                        <li>
+                            <a href="/news?id_news=cs:go" class="white small">
+                                <img style="margin-top: 2px;" title="Counter Strike Global Offensive" src="/Images/NeoDesign/FilterIcons/CSIcon.png" /></a>
+                        </li>
+                        <li>
+                            <a href="/news?id_news=Hearthstone" class="white small">
+                                <img style="margin-top: 2px;" title="Hearthstone" src="/Images/NeoDesign/FilterIcons/HSIcon.png" /></a>
+                        </li>
+                        <li>
+                            <a href="/news?id_news=Starcraft2" class="white small">
+                                <img style="margin-top: 2px;" title="Starcraft2" src="/Images/NeoDesign/FilterIcons/Rainbow6Icon.png" /></a>
+                        </li>
+                        <li>
+                            <a href="/news?id_news=hots" class="white small">
+                                <img style="margin-top: 2px;" title="Heroes of the Storm" src="/Images/NeoDesign/FilterIcons/HOTSIcon.png" /></a>
+                        </li>
+                    </ul>
+                </nav>
+                <img src="/Images/NeoDesign/NewsLine.png" style="width: 100%; height: 2px;" />
+                <p style="font-size: 15px;">Não encontrou seu evento? <a style="color: #fc7100" href="/home/premium">Vire Premium</a> e ganhe mais destaque.</p>
+            </article>
+        </section>
+    </div>*@
+
+
+    @foreach (var n in Model)
+    {
+        <div class="grid-item four masonry-brick">
+            <div class="plain box twelve">
+                <section style="height: 335px;">
+                    <header>
+                        <span class="bubble">
+                            <span>@n.NewsType</span>
+                        </span>
+                        <p>@n.Date.ToString("dd/MM/yyyy")</p>
+                    </header>
+                    <figure>
+                        <a href="/news?id_news=@n.Id">
+                            <img style="border-radius: 15px; border: solid #e51c5e;" src="@n.Img" alt="@n.Img">
+                        </a>
+                    </figure>
+                    <article>
+                        <h4>
+                            <a style="color: #c11b50" href="/news?id_news=@n.Id">@n.Title</a>
+                        </h4>
+                    </article>
+                </section>
+            </div>
+        </div>
+    }
+</div>
+
+<br />
+<div class="grid-item twelve masonry-brick" style="top: 0px; left: 0px; height: 150px;">
+    <div class="plain box twelve" style="border-left: 1px solid #161616; border-top: 1px solid #161616; height: 100%;">
+        <section>
+            <article class="twelve columns sub no-padding row shop-categories">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- Bloco Topo -->
+                <ins class="adsbygoogle"
+                    style="display: block"
+                    data-ad-client="ca-pub-8858452918865308"
+                    data-ad-slot="8412520073"
+                    data-ad-format="auto"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </article>
+        </section>
+    </div>
+</div>

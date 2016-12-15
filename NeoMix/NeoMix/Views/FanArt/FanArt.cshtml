@@ -1,0 +1,161 @@
+﻿@{
+    ViewBag.Title = "FanArt";
+    Layout = "~/Views/Shared/_MasterNeo.cshtml";
+}
+
+@model NeoMix.ViewModel.FanArtVM
+
+@section metatags
+{
+    <meta property="og:url" content="http://mixturadosneo.com/fanart?id_fanart=@Model.FanArt.Id" />
+    <meta property="og:type" content="MixturadosNeo" />
+    <meta property="og:title" content="@Model.FanArt.Title" />
+    <meta property="og:description" content="Publicado por: @Model.FanArt.Author" />
+    <meta property="og:image" content="@Model.FanArt.Url" />
+}
+
+@section MainTitle
+{
+    <h3 style="font-family: Bariol; color: white; font-size: 32px; line-height: 40px;">FANARTS</h3>
+}
+
+@section Images
+{
+    <img src="/Images/NeoDesign/bg/capa.png" alt="Mixturados" style="width: 100%; height: 350px; opacity: 0.4;" />
+}
+
+<script>
+    window.onload = function () {
+        ChampsPreview();
+        NewsPreview();
+    }
+    function ChampsPreview() {
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("ChampsNewsPreview", "Home")",
+            datatype: "html",
+            success: function (result) {
+                $('#ulChampsPreview').html(result);
+            }
+        });
+    }
+
+    function NewsPreview() {
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("NewsPreview", "News")",
+            datatype: "html",
+            success: function (result) {
+                $('#ulNewsPreview').html(result);
+            }
+        });
+    }   
+
+</script>
+
+<style>
+    img {
+        width: 100%;
+    }
+
+    p {
+        font-size: 16px !important;
+    }
+</style>
+
+<div class="row" id="top">
+    <div class="twelve box" style="padding: 10px;">
+        <h1 style="color: #32cd32">@Model.FanArt.Title</h1>
+
+        <p class="post-info">
+            Postado  @Model.FanArt.Date.ToString("dd-MM-yyyy")
+            <time datetime="@Model.FanArt.Date.ToString()">&nbsp;as @Model.FanArt.Date.ToString("HH:mm") por&nbsp;
+            </time>
+            <strong>@Model.FanArt.Author</strong>
+        </p>
+        <div style="bottom: 10px; position: absolute; right: 1px;">
+            <div class="fb-share-button" data-href="http://mixturadosneo.com/fanart?id_fanart=@Model.FanArt.Id" data-layout="button_count"></div>
+        </div>
+    </div>
+</div>
+
+<div class="one-column row">
+    <div class="eight no-border columns clear">
+        <div class="no-padding">
+            <div class="twelve no-padding box">
+                <section class="no-padding">
+                    <figure style="padding: 5px;">
+                        <img src="@Model.FanArt.Url" style="height: 100%; border: solid #32cd32; border-radius: 5px;" alt="@Model.FanArt.Title">
+                    </figure>
+                </section>
+            </div>
+            <div class="full transparent twelve box">
+                <section style="margin-top: 5px;">
+                    <span class="bubble">
+                        <span style="text-transform: uppercase;">Autor</span>
+                    </span>
+                    <p></p>
+                    <article class="row">
+                        <figure class="two columns">
+                            <a href="@Model.Admin.Link" style="border-right: solid #32cd32; margin-right: 5px;">
+                                <img src="@Model.Admin.Img" style="height: 100px; border-radius: 15px; width: 95%;">
+                            </a>
+                        </figure>
+                        <div class="ten columns">
+                            <h4>
+                                <a href="@Model.Admin.Link">@Model.Admin.Nick</a>
+                            </h4>
+                            <p>@Model.Admin.Desc</p>
+                        </div>
+                    </article>
+                </section>
+
+                <section>
+                    <div class="fb-comments" data-colorscheme="dark" data-href="http://mixturadosneo.com/fanart?id_fanart=@Model.FanArt.Id" data-numposts="5"></div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <div class="right four sidebar box">
+        <section style="padding: 5px; border-radius: 5px;">
+            <header style="text-align: center; margin-bottom: 5px;">
+                <h3 style="color: #e51c5e !important;">Notícias</h3>
+            </header>
+            <ul style="width: 100%;" id="ulNewsPreview">
+            </ul>
+            <footer>
+                <a href="/news">
+                    <h4 style="color: #e51c5e !important; text-align: center">------ Ver mais ------</h4>
+                </a>
+            </footer>
+        </section>
+        <section style="padding: 5px; border-radius: 5px;">
+            <header style="text-align: center; margin-bottom: 5px;">
+                <h3 style="color: #fc7100 !important;">Campeonatos</h3>
+            </header>
+            <ul id="ulChampsPreview">
+            </ul>
+            <footer>
+                <a href="/home/champs">
+                    <h4 style="color: #fc7100 !important; text-align: center">------ Ver mais ------</h4>
+                </a>
+            </footer>
+        </section>
+        <section class="google-ad-box">
+            <div class="google-ad" style="width: 300px; height: 604px">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- Bloco Topo -->
+                <ins class="adsbygoogle"
+                    style="display: block"
+                    data-ad-client="ca-pub-8858452918865308"
+                    data-ad-slot="8412520073"
+                    data-ad-format="auto"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </section>
+    </div>
+</div>
+

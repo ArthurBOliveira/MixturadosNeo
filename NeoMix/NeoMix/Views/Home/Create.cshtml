@@ -1,0 +1,275 @@
+﻿@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_MasterNeo.cshtml";
+}
+
+@section metatags
+{
+<meta property="og:url" content="http://mixturadosneo.com" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Mixturados - E-Sports ao seu alcance" />
+<meta property="og:description" content="Encontre seu caminho ao Topo" />
+<meta property="og:image" content="http://mixturadosneo.com/Images/NeoDesign/Logo.png" />
+}
+
+@section MainTitle
+{
+<h3 style="font-family: Bariol; color: white; font-size: 32px; line-height: 40px;"><b>MIXTURADOS</b></h3>
+}
+
+@section Images
+{
+<img src="/Images/NeoDesign/bg/capa.png" alt="Mixturados" style="width: 100%; height: 350px; opacity: 0.4;" />
+}
+
+<script>
+    window.onload = function () {
+        $("#btnGo").click(Go);
+        $("#btnGoLink").click(GoLink);
+        $("#btnBattlefy").click(Battlefy);
+        $("#btnXFire").click(XFire);
+        $("#btnGC").click(GC);
+        $("#btnESL").click(ESL);
+        $("#btnESLPremier").click(ESLPremier);
+        $("#btnNews").click(News);
+        $("#btnESportGG").click(ESportGG);
+        $("#btnRazerArena").click(RazerArena);
+        $("#btnSpot").click(Spot);
+    };
+
+    function Go() {
+        var Src = $("#selSrc").val();
+        var Html = $("#txtHtml").val();
+
+        var data = "&src=" + Src + "&html=" + Html;
+
+
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("CreateChamps", "Home")",
+            data: data,
+            headers: {
+                "Content-Length": data.length
+            },
+            success: function(result) { 
+                if (result)
+                    window.alert("Campeonatos cadastrados com sucesso");
+                else
+                    window.alert("Deu Bad!! O_O");
+            }
+        });
+    };
+
+    function GoLink() {
+        var Src = $("#selSrcLink").val();
+        var Link = $("#txtHtmlLink").val();
+        var Extra = $("#txtExtra").val();
+
+        var data = "&src=" + Src + "&link=" + Link + "&extra=" + Extra;
+
+
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("CreateChampsLink", "Home")",
+            data: data,
+            success: function (result) {
+                if (result)
+                    window.alert("Campeonatos cadastrados com sucesso");
+                else
+                    window.alert("Deu Bad!! O_O");
+            }
+        });
+    }
+
+    function Battlefy() {
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("Battlefy", "Home")",
+            success: function (result) {
+                if (result)
+                    window.alert("Campeonatos cadastrados com sucesso");
+                else
+                    window.alert("Deu Bad!! O_O");
+            }
+        });
+    }
+
+    function XFire() {
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("XFire", "Home")",
+            success: function (result) {
+                if (result)
+                    window.alert("Campeonatos cadastrados com sucesso");
+                else
+                    window.alert("Deu Bad!! O_O");
+            }
+        });
+    }
+
+     function GC(){
+         $.ajax({
+             type: "POST",
+             url: "@Url.Action("GC", "Home")",
+             success: function (result) {
+                 if (result)
+                     window.alert("Campeonatos cadastrados com sucesso");
+                 else
+                     window.alert("Deu Bad!! O_O");
+             }
+     });
+     }
+
+    function ESL() {
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("ESL", "Home")",
+             success: function (result) {
+                 if (result)
+                     window.alert("Campeonatos cadastrados com sucesso");
+                 else
+                     window.alert("Deu Bad!! O_O");
+             }
+         });
+    }
+
+    function ESLPremier() {
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("ESLPremier", "Home")",
+            success: function (result) {
+                if (result)
+                    window.alert("Campeonatos cadastrados com sucesso");
+                else
+                    window.alert("Deu Bad!! O_O");
+            }
+        });
+    }
+
+    function ESportGG() {
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("ESportGG", "Home")",
+            success: function (result) {
+                if (result)
+                    window.alert("Campeonatos cadastrados com sucesso");
+                else
+                    window.alert("Deu Bad!! O_O");
+            }
+        });
+    }
+
+    function RazerArena() {
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("RazerArena", "Home")",
+            success: function (result) {
+                if (result)
+                    window.alert("Campeonatos cadastrados com sucesso");
+                else
+                    window.alert("Deu Bad!! O_O");
+            }
+        });
+    }
+
+    function News() {
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("FeedNews", "Home")",
+            success: function (result) {
+                window.alert("Foram cadastradas " + result + " notícias!");
+            }
+        });
+    }
+
+    function Spot() {
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("SpotRefresh", "Home")",
+            success: function (result) {
+                if (result)
+                    window.alert("Spotlight Atualizados!");
+                else
+                    window.alert("Deu Bad!! O_O");
+            }
+        });
+    }
+</script>
+
+<label>Fonte</label>
+<br />
+<select id="selSrc">
+<option>LOL</option>
+<option>XFIRE</option>
+<option>Battlefy</option>
+</select>
+<br />
+<br />
+<label>Html</label>
+<br />
+<textarea id="txtHtml" style="margin: 0px; width: 734px; height: 177px;"></textarea>
+<br />
+<br />
+<button id="btnGo">Ir</button>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<h2>Link Direto</h2>
+<br />
+<label>Fonte</label>
+<br />
+<select id="selSrcLink">
+<option>LOL</option>
+<option>XFIRE</option>
+<option>Battlefy</option>
+</select>
+<br />
+<br />
+<label>Link</label>
+<br />
+<input id="txtHtmlLink" type="text"/>
+<br />
+<label>Extra</label>
+<br />
+<input id="txtExtra" type="text"/>
+<br />
+<br />
+<button id="btnGoLink">Ir</button>
+
+
+<br />
+<br />
+<button id="btnBattlefy">Consumir Battlefy</button>
+<br />
+<br />
+<button id="btnXFire">Consumir XFire</button>
+<br />
+<br />
+<button id="btnGC">Consumir GamersClub</button>
+<br />
+<br />
+<button id="btnESL">Consumir ESL</button>
+<br />
+<br />
+<button id="btnESLPremier">Consumir ESL Premier</button>
+<br />
+<br />
+<button id="btnESportGG">Consumir ESportGG</button>
+<br />
+<br />
+<button id="btnRazerArena">Consumir RazerArena</button>
+
+<br />
+<p>----------------------------------------------------</p>
+<br />
+
+<button id="btnNews">Consumir News</button>
+
+<br />
+<br />
+
+<button id="btnSpot">Atualizar Spotlight</button>
